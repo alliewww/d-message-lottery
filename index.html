@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D卡留言活動抽獎</title>
+    <script src="index.js" defer></script>
+    <style>
+        .flex-container {
+            display: flex;
+        }
+
+        .flex-container pre {
+            flex: 1;
+            /* 平均分配寬度 */
+            box-sizing: border-box;
+            /* 確保 padding 和 border 不會增加元素的寬度 */
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h3>請輸入原始資料：</h3>
+
+    <!-- 輸入框 -->
+    <input type="text" class="myInput" placeholder="請輸入原始object">
+    <input type="text" class="myInput" placeholder="請輸入原始object">
+    <input type="text" class="myInput" placeholder="請輸入原始object">
+    <input type="text" class="myInput" placeholder="請輸入原始object">
+    <input type="text" class="myInput" placeholder="請輸入原始object">
+    <h3>請輸入過濾條件(必須包含的hashtag)：</h3>
+    <input type="text" id="hashtag" placeholder="hashtag">
+    <br /><br />
+    <label for="numbers">選擇有幾個獎項：</label>
+    <select id="numbers" name="numbers">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <br />
+    <label for="checkbox">是否限定卡稱參加：</label>
+    <input type="checkbox" id="checkbox" name="checkbox" checked disabled>
+    <br />
+    <label for="checkbox">是否過濾重複參加者：</label>
+    <input type="checkbox" id="checkbox" name="checkbox" checked disabled>
+    <br />
+
+    <label for="checkbox">是否排除板主的抽獎資格：</label>
+    <input type="checkbox" id="managerCheck" name="checkbox">
+    <input type="text" id="managerId" placeholder="板主id">
+    <br /><br />
+    <!-- 新增按鈕，點擊時呼叫 JavaScript 函數 -->
+    <button onclick="calculateUniqueFloors()">抽出獎項！</button>
+    <p id="checkinput"></p>
+    <div class="flex-container">
+        <pre id="output"></pre>
+        <pre id="drawing"></pre>
+    </div>
+
+</body>
+
+</html>
